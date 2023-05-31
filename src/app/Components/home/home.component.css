@@ -1,0 +1,35 @@
+.about-us-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+li {
+  color: #4d4d4d;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a {
+  color: #008cba;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

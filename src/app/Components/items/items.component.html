@@ -1,0 +1,87 @@
+
+<div class="p-5">
+  <div style="margin-left: 340px">
+    <input
+      type="text"
+      class="form-control w-75"
+      placeholder="Search Products"
+      [(ngModel)]="searchText"
+      (ngModelChange)="searchProducts()"
+    />
+  </div>
+  <div class="container">
+    <div class="container my-5 mx-4 move">
+      <button
+        class="mx-3"
+        (click)="selectedCategory = ''"
+        mat-raised-button
+        color="primary"
+      >
+        All
+      </button>
+      <button
+        class="mx-3"
+        (click)="selectedCategory = 'Home Decor'"
+        mat-raised-button
+        color="primary"
+      >
+        Home Decor
+      </button>
+      <button
+        class="mx-3"
+        (click)="selectedCategory = 'Accessories'"
+        mat-raised-button
+        color="primary"
+      >
+        Accessories
+      </button>
+      <button
+        class="mx-3"
+        (click)="selectedCategory = 'kitchenware'"
+        mat-raised-button
+        color="primary"
+      >
+        kitchenware
+      </button>
+      <button
+        class="mx-3"
+        (click)="selectedCategory = 'Dining'"
+        mat-raised-button
+        color="primary"
+      >
+        Dining
+      </button>
+    </div>
+    <div class="container">
+      <div class="row data">
+        <div class="col-lg-4 my-4" *ngFor="let product of filteredProducts()">
+          <mat-card
+            class="big bg-body shadow px-3 mb-5 bg-body-tertiary rounded py-2"
+          >
+            <a routerLink="/productDetails/{{ product.id }}"
+              ><img class="rounded" mat-card-image src="{{ product.image }} "
+            /></a>
+            <mat-card-content class="text-center pt-2">
+              <p>
+                {{ product.name }}
+              </p>
+              <p>
+                {{ product.price }}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button
+                class="text-center ms-5 px-4"
+                mat-raised-button
+                color="primary"
+                (click)="AddToCart(product)"
+              >
+                Add to Cart
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

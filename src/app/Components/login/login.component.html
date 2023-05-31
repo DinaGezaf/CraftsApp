@@ -1,0 +1,57 @@
+<div class="container d-flex bg-dark d-flex justify-content-center">
+  <img
+    src="assets/Logo/login.png"
+    style="width: 400px; height: 434px"
+    class="mx-5 my-2"
+  />
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    class="text-light mx-3 my-5"
+    style="width: 350px"
+  >
+    <h2 class="text-center fw-bold my-4 text-light">Login</h2>
+    <div class="mb-3">
+      <mat-form-field appearance="fill" class="input-with-icon">
+        <mat-icon matPrefix>email</mat-icon>
+        <mat-label for="username" class="form-label">Username</mat-label>
+        <input
+          matInput
+          type="username"
+          id="username"
+          formControlName="username"
+          id="username"
+          placeholder="Enter your username"
+        />
+      </mat-form-field>
+      <div
+        *ngIf="username?.invalid && (username?.dirty || username?.touched)"
+        class="error text-danger p-1"
+      >
+        <div *ngIf="username?.errors?.['required']">Invalid Username.</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <mat-form-field appearance="fill" class="input-with-icon">
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-label for="password" class="form-label">Password</mat-label>
+        <input
+          matInput
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+      </mat-form-field>
+      <div
+        *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+        class="text-danger p-1"
+      >
+        <div *ngIf="password?.errors?.['required']">Invalid Password.</div>
+      </div>
+    </div>
+    <div class="text-center m-4">
+      <button type="submit" mat-raised-button color="primary" class="p-4">Log In</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,21 @@
+.data {
+  width: 750px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 300px;
+}
+
+img {
+  width: 220px;
+  height: 300px;
+}
+
+.move {
+  display: flex;
+  justify-content: center;
+}
+
+.big {
+  width: 260px;
+}

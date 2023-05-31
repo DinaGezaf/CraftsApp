@@ -1,0 +1,44 @@
+img {
+  width: 700px;
+  height: 600px;
+}
+
+.move {
+  margin-left: 400px;
+  width: 700px;
+}
+
+h1, h2 {
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+li {
+  color: #4d4d4d;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.show {
+  position: absolute;
+  right: 200px;
+  bottom: -50px;
+  height: 550px;
+  background-color: white;
+  font-size: 15px;
+}
+div.show{
+  font-size: 15px !important;
+  padding-left:50px;
+  width:700px;
+}

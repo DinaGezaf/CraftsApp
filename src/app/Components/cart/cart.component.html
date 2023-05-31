@@ -1,0 +1,119 @@
+<div class="bg-body text-center">
+  <mat-table [dataSource]="dataSource" matSort *ngIf="cartItems.length > 0">
+    <!-- Product Name Column -->
+    <ng-container matColumnDef="productName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Product</mat-header-cell
+      >
+      <mat-cell *matCellDef="let item"
+        ><img
+          src="{{ item.product.image }}"
+          style="width: 150px; height: 150px"
+          class="my-2"
+        /><br />
+        <p class="mx-2 px-2">{{ item.product.name }}</p>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+      <mat-cell *matCellDef="let item">{{ item.product.price }}</mat-cell>
+    </ng-container>
+
+    <!-- Quantity Column -->
+    <ng-container matColumnDef="quantity">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Quantity</mat-header-cell
+      >
+      <mat-cell *matCellDef="let item">
+        <button
+          mat-fab
+          color="warn"
+          aria-label="Example icon button with a home icon"
+          class="mx-2"
+          (click)="decrementQuantity(item)"
+        >
+          -
+        </button>
+
+        <mat-form-field>
+          <input
+            class="mx-2"
+            matInput
+            type="number"
+            [(ngModel)]="item.quantity"
+            (ngModelChange)="updateCart(item)"
+          />
+        </mat-form-field>
+        <button
+          mat-fab
+          color="primary"
+          class="mx-2"
+          (click)="incrementQuantity(item)"
+        >
+          +
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Total Column -->
+    <ng-container matColumnDef="total">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Total</mat-header-cell>
+      <mat-cell *matCellDef="let item">{{
+        item.product.price * item.quantity
+      }}</mat-cell>
+    </ng-container>
+    <!-- Total Column -->
+    <ng-container matColumnDef="Actions">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Actions</mat-header-cell
+      >
+      <mat-cell *matCellDef="let item"
+        ><button
+          mat-fab
+          color="primary"
+          aria-label="Example icon button with a delete icon"
+          (click)="removeItem(item.id)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button></mat-cell
+      >
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let item; columns: displayedColumns"></mat-row>
+  </mat-table>
+
+  <mat-paginator
+    *ngIf="cartItems.length > 0"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    [length]="totalItems"
+  >
+  </mat-paginator>
+
+  <div class="container text-center my-4" *ngIf="cartItems.length > 0">
+    <div class="container my-5 text-center fs-4" *ngIf="cartItems.length > 0">
+      <p>Total Checkout: {{ totalCheckout | currency }}</p>
+    </div>
+    <button
+      class="mx-2 p-4"
+      mat-raised-button
+      color="primary"
+      aria-label="Example icon button with a delete icon"
+      (click)="order()"
+    >
+      Checkout
+    </button>
+  </div>
+
+  <div
+    class="container text-center p-5 m-5 fw-bold"
+    style="color: blueviolet"
+    *ngIf="cartItems.length == 0"
+  >
+    Your Cart Is Empty!
+  </div>
+</div>

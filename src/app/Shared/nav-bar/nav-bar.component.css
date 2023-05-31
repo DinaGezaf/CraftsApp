@@ -1,0 +1,13 @@
+* {
+  font-size: 20px;
+}
+
+mat-icon {
+  font-size: 25px
+}
+
+.move {
+  position: absolute;
+  top: 0px;
+  right: 130px;
+}

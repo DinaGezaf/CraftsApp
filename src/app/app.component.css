@@ -1,0 +1,18 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  margin-top: auto;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.wrapper {
+  min-height: 86vh;
+  display: flex;
+  flex-direction: column;
+}

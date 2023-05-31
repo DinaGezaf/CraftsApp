@@ -1,0 +1,122 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-light"
+  aria-label="Tenth navbar example"
+>
+  <div class="container-fluid fs-3">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarsExample08"
+      aria-controls="navbarsExample08"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-md-start px-5"
+      id="navbarsExample08"
+    >
+      <ul class="navbar-nav px-2">
+        <li class="nav-item">
+          <img src="assets/Logo/images.png" style="width: 50px; height: 50px" />
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link fw-bold bg-light p-4 fs-2"
+            aria-current="page"
+            href="#"
+            mat-button
+            color="primary"
+            >DIVA CRAFT</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div
+      class="collapse navbar-collapse justify-content-md-end px-5"
+      id="navbarsExample08"
+    >
+      <ul class="navbar-nav px-2">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            mat-icon-button
+            color="primary"
+            aria-current="page"
+            [routerLink]="['']"
+            routerLinkActive="text-dark border-bottom border-dark"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ><mat-icon class="fs-5">home</mat-icon></a
+          >
+        </li>
+        <li class="nav-item px-2">
+          <a
+            class="nav-link"
+            mat-icon-button
+            color="primary"
+            [routerLink]="['about']"
+            routerLinkActive="text-dark border-bottom border-dark"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ><mat-icon>info</mat-icon></a
+          >
+        </li>
+        <li class="nav-item px-2">
+          <a
+            class="nav-link"
+            mat-icon-button
+            color="primary"
+            [routerLink]="['products']"
+            routerLinkActive="text-dark border-bottom border-dark"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ><mat-icon class="tag-icon">widgets</mat-icon></a
+          >
+        </li>
+        <li class="nav-item px-2" (click)="onCartClick()">
+          <a
+            class="nav-link"
+            mat-icon-button
+            color="primary"
+            [routerLink]="['cart']"
+            routerLinkActive="text-dark border-bottom border-dark"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ><mat-icon>shopping_cart</mat-icon></a
+          >
+          <span class="badge badge-pill badge-primary text-dark move">{{
+            cartCount
+          }}</span>
+        </li>
+        <li *ngIf="!isLoggedIn">
+          <a
+            mat-icon-button
+            color="primary"
+            [matMenuTriggerFor]="menu"
+            aria-label="Example icon-button with a menu"
+          >
+            <mat-icon>account_circle</mat-icon>
+          </a>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openLogin()">
+              <mat-icon>lock_open</mat-icon>
+              <span>Log In</span>
+            </button>
+            <button mat-menu-item (click)="openRegister()">
+              <mat-icon>person</mat-icon>
+              <span>Sign In</span>
+            </button>
+          </mat-menu>
+        </li>
+        <li *ngIf="isLoggedIn">
+          <a
+            class="nav-link"
+            mat-icon-button
+            color="primary"
+            (click)="onLogout()"
+            ><mat-icon>exit_to_app</mat-icon></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
